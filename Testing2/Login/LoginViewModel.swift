@@ -33,5 +33,15 @@ class LoginViewModel {
         ]
         
         return networkService.post(endpoint: "LoginFunction", parameters: parameters)
+            .do(onNext: { response in
+                if let encoded = try? JSONEncoder().encode(response) {
+                    UserDefaults.standard.set(encoded, forKey: "loginResponse")
+                    UserDefaults.standard.set(try! self.rememberMe.value(), forKey: "rememberMe")
+                }
+            })
+    }
+    
+    func hasRememberMeSave() -> Bool {
+        return UserDefaults.standard.bool(forKey: "rememberMe")
     }
 }

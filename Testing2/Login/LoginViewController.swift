@@ -78,6 +78,13 @@ class LoginViewController: UIViewController {
         setupBindings()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if viewModel.hasRememberMeSave() {
+            navigateToHome()
+            return
+        }
+    }
+    
     private func setupUI() {
         let rememberMeStack = UIStackView(arrangedSubviews: [rememberSwitchLabel, rememberSwitch])
         rememberMeStack.spacing = 15
@@ -105,8 +112,8 @@ class LoginViewController: UIViewController {
     private func setupBindings() {
         // TODO Remove
         loginTextField.text = "newuser2@domain.com"
-//        passwordTextField.text = "password1234"
-        passwordTextField.text = "password12346" //wrong password
+        passwordTextField.text = "password1234"
+//        passwordTextField.text = "password12346" //wrong password
         
         loginTextField.rx.text.orEmpty
             .bind(to: viewModel.username)

@@ -27,17 +27,19 @@ class HomeViewController: UITabBarController {
         
         let firstTab = UIViewController()
         firstTab.view.backgroundColor = .white
-        firstTab.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        firstTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         
         let secondTab = UIViewController()
         secondTab.view.backgroundColor = .white
-        secondTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        secondTab.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         
         let thirdTab = UIViewController()
         thirdTab.view.backgroundColor = .white
         thirdTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 2)
         
         viewControllers = [firstTab, secondTab, thirdTab]
+        
+        selectedIndex = 1
     }
     
     private func setupBindings() {

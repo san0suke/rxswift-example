@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LoginResponseDTO: Decodable {
+struct LoginResponseDTO: Codable {
     let token: String
     let user: UserDTO
 }
