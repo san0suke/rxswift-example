@@ -30,6 +30,7 @@
 		8A891E3E2CD45F5A00367DA3 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891E3D2CD45F5A00367DA3 /* UserDTO.swift */; };
 		8A891E412CD47E4E00367DA3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891E402CD47E4E00367DA3 /* HomeViewController.swift */; };
 		8A891E442CD522BF00367DA3 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891E432CD522BF00367DA3 /* LoadingViewController.swift */; };
+		8A90EAC32CD557B7005FDD02 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90EAC22CD557B7005FDD02 /* UserDefaultsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		8A891E3D2CD45F5A00367DA3 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		8A891E402CD47E4E00367DA3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8A891E432CD522BF00367DA3 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		8A90EAC22CD557B7005FDD02 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				8A891E212CD3C98000367DA3 /* LoginViewController.swift */,
 				8A891E392CD41C0A00367DA3 /* LoginViewModel.swift */,
+				8A90EAC22CD557B7005FDD02 /* UserDefaultsData.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				8A891E222CD3C98000367DA3 /* LoginViewController.swift in Sources */,
 				8A891E3A2CD41C0A00367DA3 /* LoginViewModel.swift in Sources */,
 				8A891E352CD4128400367DA3 /* NetworkService.swift in Sources */,
+				8A90EAC32CD557B7005FDD02 /* UserDefaultsData.swift in Sources */,
 				8A891E412CD47E4E00367DA3 /* HomeViewController.swift in Sources */,
 				8A891DE92CD34DBB00367DA3 /* SceneDelegate.swift in Sources */,
 				8A891E3E2CD45F5A00367DA3 /* UserDTO.swift in Sources */,

@@ -18,9 +18,12 @@ class LoginViewModel {
     let password = BehaviorSubject<String>(value: "")
     let rememberMe = BehaviorSubject<Bool>(value: false)
     let isLoginButtonEnabled: Observable<Bool>
+    let userDefaultData: UserDefaultsData
     
-    init(networkService: NetworkService = NetworkService(baseURL: "http://localhost:7071/api/")) {
+    init(networkService: NetworkService = NetworkService(baseURL: "http://localhost:7071/api/"),
+         userDefaultData: UserDefaultsData = UserDefaultsData()) {
         self.networkService = networkService
+        self.userDefaultData = userDefaultData
         
         isLoginButtonEnabled = Observable.combineLatest(username, password)
             .map { !$0.isEmpty && !$1.isEmpty }
@@ -34,14 +37,12 @@ class LoginViewModel {
         
         return networkService.post(endpoint: "LoginFunction", parameters: parameters)
             .do(onNext: { response in
-                if let encoded = try? JSONEncoder().encode(response) {
-                    UserDefaults.standard.set(encoded, forKey: "loginResponse")
-                    UserDefaults.standard.set(try! self.rememberMe.value(), forKey: "rememberMe")
-                }
+                self.userDefaultData.userData = response
+                self.userDefaultData.rememberMe = try! self.rememberMe.value()
             })
     }
     
     func hasRememberMeSave() -> Bool {
-        return UserDefaults.standard.bool(forKey: "rememberMe")
+        return self.userDefaultData.rememberMe
     }
 }
