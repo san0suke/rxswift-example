@@ -10,10 +10,6 @@ import RxSwift
 import RxAlamofire
 import Alamofire
 
-import RxSwift
-import RxAlamofire
-import Alamofire
-
 class NetworkService {
     
     private let baseURL: String

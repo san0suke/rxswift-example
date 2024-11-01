@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HomeViewController: UIViewController {
+class HomeViewController: UITabBarController {
     
     private let viewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
@@ -25,27 +25,19 @@ class HomeViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-//        let rememberMeStack = UIStackView(arrangedSubviews: [rememberSwitchLabel, rememberSwitch])
-//        rememberMeStack.spacing = 15
-//        rememberMeStack.axis = .horizontal
-//        
-//        let verticalStackView = UIStackView(arrangedSubviews: [formTitle, loginTextField, passwordTextField,
-//                                                               rememberMeStack, loginButton])
-//        verticalStackView.axis = .vertical
-//        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
-//        verticalStackView.spacing = 15
-//        verticalStackView.alignment = .center
-//        
-//        view.addSubview(verticalStackView)
-//        
-//        NSLayoutConstraint.activate([
-//            verticalStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            verticalStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            formTitle.widthAnchor.constraint(equalToConstant: 250),
-//            loginTextField.widthAnchor.constraint(equalToConstant: 250),
-//            passwordTextField.widthAnchor.constraint(equalToConstant: 250),
-//            loginButton.widthAnchor.constraint(equalToConstant: 250)
-//        ])
+        let firstTab = UIViewController()
+        firstTab.view.backgroundColor = .white
+        firstTab.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        
+        let secondTab = UIViewController()
+        secondTab.view.backgroundColor = .white
+        secondTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        
+        let thirdTab = UIViewController()
+        thirdTab.view.backgroundColor = .white
+        thirdTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 2)
+        
+        viewControllers = [firstTab, secondTab, thirdTab]
     }
     
     private func setupBindings() {
