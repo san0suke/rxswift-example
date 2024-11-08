@@ -22,6 +22,12 @@ class HomeViewController: UITabBarController {
         setupBindings()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     private func setupUI() {
         view.backgroundColor = .white
         
