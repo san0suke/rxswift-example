@@ -29,9 +29,9 @@ class HomeViewController: UITabBarController {
         firstTab.view.backgroundColor = .white
         firstTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         
-        let secondTab = UIViewController()
+        let secondTab = LobbyViewController()
         secondTab.view.backgroundColor = .white
-        secondTab.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
+        secondTab.tabBarItem = UITabBarItem(title: "Lobby", image: UIImage(systemName: "house"), tag: 1)
         
         let thirdTab = UIViewController()
         thirdTab.view.backgroundColor = .white

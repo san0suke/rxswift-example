@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8A891DE72CD34DBB00367DA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891DE62CD34DBB00367DA3 /* AppDelegate.swift */; };
 		8A891DE92CD34DBB00367DA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891DE82CD34DBB00367DA3 /* SceneDelegate.swift */; };
-		8A891DEB2CD34DBB00367DA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891DEA2CD34DBB00367DA3 /* ViewController.swift */; };
 		8A891DEE2CD34DBB00367DA3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8A891DED2CD34DBB00367DA3 /* Base */; };
 		8A891DF12CD34DBB00367DA3 /* Testing2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A891DEF2CD34DBB00367DA3 /* Testing2.xcdatamodeld */; };
 		8A891DF32CD34DBD00367DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A891DF22CD34DBD00367DA3 /* Assets.xcassets */; };
@@ -31,6 +30,8 @@
 		8A891E412CD47E4E00367DA3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891E402CD47E4E00367DA3 /* HomeViewController.swift */; };
 		8A891E442CD522BF00367DA3 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A891E432CD522BF00367DA3 /* LoadingViewController.swift */; };
 		8A90EAC32CD557B7005FDD02 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90EAC22CD557B7005FDD02 /* UserDefaultsData.swift */; };
+		8A90EAC62CD55DDF005FDD02 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90EAC52CD55DDF005FDD02 /* LobbyViewController.swift */; };
+		8AB699392CDEA11900510F96 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB699382CDEA11900510F96 /* StatusBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,6 @@
 		8A891DE32CD34DBB00367DA3 /* Testing2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testing2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A891DE62CD34DBB00367DA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A891DE82CD34DBB00367DA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8A891DEA2CD34DBB00367DA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A891DED2CD34DBB00367DA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A891DF02CD34DBB00367DA3 /* Testing2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Testing2.xcdatamodel; sourceTree = "<group>"; };
 		8A891DF22CD34DBD00367DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		8A891E402CD47E4E00367DA3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8A891E432CD522BF00367DA3 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		8A90EAC22CD557B7005FDD02 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
+		8A90EAC52CD55DDF005FDD02 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		8AB699382CDEA11900510F96 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,8 @@
 		8A891DE52CD34DBB00367DA3 /* Testing2 */ = {
 			isa = PBXGroup;
 			children = (
+				8AB699372CDEA10300510F96 /* Components */,
+				8A90EAC42CD55DCC005FDD02 /* Lobby */,
 				8A891E422CD522B100367DA3 /* Loading */,
 				8A891E3F2CD47E3B00367DA3 /* Home */,
 				8A891E362CD41BAB00367DA3 /* Model */,
@@ -137,7 +141,6 @@
 				8A891E232CD3C98600367DA3 /* Login */,
 				8A891DE62CD34DBB00367DA3 /* AppDelegate.swift */,
 				8A891DE82CD34DBB00367DA3 /* SceneDelegate.swift */,
-				8A891DEA2CD34DBB00367DA3 /* ViewController.swift */,
 				8A891DEC2CD34DBB00367DA3 /* Main.storyboard */,
 				8A891DF22CD34DBD00367DA3 /* Assets.xcassets */,
 				8A891DF42CD34DBD00367DA3 /* LaunchScreen.storyboard */,
@@ -213,6 +216,22 @@
 				8A891E432CD522BF00367DA3 /* LoadingViewController.swift */,
 			);
 			path = Loading;
+			sourceTree = "<group>";
+		};
+		8A90EAC42CD55DCC005FDD02 /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				8A90EAC52CD55DDF005FDD02 /* LobbyViewController.swift */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		8AB699372CDEA10300510F96 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8AB699382CDEA11900510F96 /* StatusBarView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,7 +376,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A891DEB2CD34DBB00367DA3 /* ViewController.swift in Sources */,
 				8A891DF12CD34DBB00367DA3 /* Testing2.xcdatamodeld in Sources */,
 				8A891E3C2CD45F1D00367DA3 /* LoginResponseDTO.swift in Sources */,
 				8A891DE72CD34DBB00367DA3 /* AppDelegate.swift in Sources */,
@@ -368,6 +386,8 @@
 				8A891E412CD47E4E00367DA3 /* HomeViewController.swift in Sources */,
 				8A891DE92CD34DBB00367DA3 /* SceneDelegate.swift in Sources */,
 				8A891E3E2CD45F5A00367DA3 /* UserDTO.swift in Sources */,
+				8AB699392CDEA11900510F96 /* StatusBarView.swift in Sources */,
+				8A90EAC62CD55DDF005FDD02 /* LobbyViewController.swift in Sources */,
 				8A891E382CD41BB500367DA3 /* LoginDTO.swift in Sources */,
 				8A891E442CD522BF00367DA3 /* LoadingViewController.swift in Sources */,
 			);
