@@ -10,9 +10,10 @@ import UIKit
 
 class StatusBarView: UIView {
     
+    var tapCountManager: TapCountManagerProtocol = TapCountManager.shared
+    
     let tapLabelScore: UILabel = {
         let label = UILabel()
-        label.text = "Tap Count: 0"
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

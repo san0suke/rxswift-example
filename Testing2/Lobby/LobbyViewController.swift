@@ -32,7 +32,7 @@ class LobbyViewController: UIViewController {
         return uiView
     }()
     
-    private let tapCounter = BehaviorRelay<Int>(value: 0)
+    private let tapCounter = BehaviorRelay<Int>(value: TapCountManager.shared.tapCount)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,10 +71,10 @@ class LobbyViewController: UIViewController {
         tapGesture.rx.event
             .do(onNext: { _ in
                 print("Tapped!")
+                let newCount = TapCountManager.shared.incrementTapCount()
+                self.tapCounter.accept(newCount)
             })
-            .map { _ in 1 }
-            .scan(0) { acc, newValue in acc + newValue }
-            .bind(to: tapCounter)
+            .subscribe()
             .disposed(by: disposeBag)
         
         tapCounter

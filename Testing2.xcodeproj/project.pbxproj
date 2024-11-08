@@ -32,6 +32,7 @@
 		8A90EAC32CD557B7005FDD02 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90EAC22CD557B7005FDD02 /* UserDefaultsData.swift */; };
 		8A90EAC62CD55DDF005FDD02 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90EAC52CD55DDF005FDD02 /* LobbyViewController.swift */; };
 		8AB699392CDEA11900510F96 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB699382CDEA11900510F96 /* StatusBarView.swift */; };
+		8AB6993C2CDED11E00510F96 /* TapCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6993B2CDED11E00510F96 /* TapCountManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		8A90EAC22CD557B7005FDD02 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
 		8A90EAC52CD55DDF005FDD02 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		8AB699382CDEA11900510F96 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
+		8AB6993B2CDED11E00510F96 /* TapCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCountManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		8A891DE52CD34DBB00367DA3 /* Testing2 */ = {
 			isa = PBXGroup;
 			children = (
+				8AB6993A2CDED11500510F96 /* Managers */,
 				8AB699372CDEA10300510F96 /* Components */,
 				8A90EAC42CD55DCC005FDD02 /* Lobby */,
 				8A891E422CD522B100367DA3 /* Loading */,
@@ -232,6 +235,14 @@
 				8AB699382CDEA11900510F96 /* StatusBarView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		8AB6993A2CDED11500510F96 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8AB6993B2CDED11E00510F96 /* TapCountManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +393,7 @@
 				8A891E222CD3C98000367DA3 /* LoginViewController.swift in Sources */,
 				8A891E3A2CD41C0A00367DA3 /* LoginViewModel.swift in Sources */,
 				8A891E352CD4128400367DA3 /* NetworkService.swift in Sources */,
+				8AB6993C2CDED11E00510F96 /* TapCountManager.swift in Sources */,
 				8A90EAC32CD557B7005FDD02 /* UserDefaultsData.swift in Sources */,
 				8A891E412CD47E4E00367DA3 /* HomeViewController.swift in Sources */,
 				8A891DE92CD34DBB00367DA3 /* SceneDelegate.swift in Sources */,
