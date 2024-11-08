@@ -32,10 +32,13 @@ class LobbyViewController: UIViewController {
         return uiView
     }()
     
+    private let tapCounter = BehaviorRelay<Int>(value: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        setupBindings()
     }
     
     func setupUI() {
@@ -59,5 +62,24 @@ class LobbyViewController: UIViewController {
             tapHereLabel.centerXAnchor.constraint(equalTo: tapView.centerXAnchor),
             tapHereLabel.centerYAnchor.constraint(equalTo: tapView.centerYAnchor),
         ])
+    }
+    
+    private func setupBindings() {
+        let tapGesture = UITapGestureRecognizer()
+        tapView.addGestureRecognizer(tapGesture)
+        
+        tapGesture.rx.event
+            .do(onNext: { _ in
+                print("Tapped!")
+            })
+            .map { _ in 1 }
+            .scan(0) { acc, newValue in acc + newValue }
+            .bind(to: tapCounter)
+            .disposed(by: disposeBag)
+        
+        tapCounter
+            .map { "Taps: \($0)" }
+            .bind(to: statusBarView.tapLabelScore.rx.text)
+            .disposed(by: disposeBag)
     }
 }

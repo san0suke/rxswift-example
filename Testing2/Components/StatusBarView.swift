@@ -10,7 +10,7 @@ import UIKit
 
 class StatusBarView: UIView {
     
-    private let tapLabelScore: UILabel = {
+    let tapLabelScore: UILabel = {
         let label = UILabel()
         label.text = "Tap Count: 0"
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -40,9 +40,5 @@ class StatusBarView: UIView {
             tapLabelScore.centerXAnchor.constraint(equalTo: centerXAnchor),
             tapLabelScore.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
-    }
-    
-    func update(count: Int) {
-        tapLabelScore.text = "Tap Count: \(count)"
     }
 }
