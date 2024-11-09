@@ -68,7 +68,6 @@ class LobbyViewController: UIViewController {
         
         tapGesture.rx.event
             .do(onNext: { _ in
-                print("Tapped!")
                 TapCountManager.shared.incrementTapCount()
             })
             .subscribe()
