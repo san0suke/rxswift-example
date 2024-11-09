@@ -30,7 +30,7 @@ class HomeViewController: UITabBarController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        let firstTab = UIViewController()
+        let firstTab = StoreViewController()
         firstTab.view.backgroundColor = .white
         firstTab.tabBarItem = UITabBarItem(title: "Store", image: UIImage(systemName: "storefront"), tag: 0)
         
@@ -38,11 +38,7 @@ class HomeViewController: UITabBarController {
         secondTab.view.backgroundColor = .white
         secondTab.tabBarItem = UITabBarItem(title: "Lobby", image: UIImage(systemName: "house"), tag: 1)
         
-        let thirdTab = UIViewController()
-        thirdTab.view.backgroundColor = .white
-        thirdTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 2)
-        
-        viewControllers = [firstTab, secondTab, thirdTab]
+        viewControllers = [firstTab, secondTab]
         
         selectedIndex = 1
     }

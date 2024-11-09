@@ -33,6 +33,8 @@
 		8A90EAC62CD55DDF005FDD02 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90EAC52CD55DDF005FDD02 /* LobbyViewController.swift */; };
 		8AB699392CDEA11900510F96 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB699382CDEA11900510F96 /* StatusBarView.swift */; };
 		8AB6993C2CDED11E00510F96 /* TapCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6993B2CDED11E00510F96 /* TapCountManager.swift */; };
+		8AB6993F2CDEF65A00510F96 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6993E2CDEF65A00510F96 /* StoreViewController.swift */; };
+		8AB699412CDEF67000510F96 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB699402CDEF67000510F96 /* StoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		8A90EAC52CD55DDF005FDD02 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		8AB699382CDEA11900510F96 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
 		8AB6993B2CDED11E00510F96 /* TapCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCountManager.swift; sourceTree = "<group>"; };
+		8AB6993E2CDEF65A00510F96 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		8AB699402CDEF67000510F96 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,8 @@
 		8AB6993D2CDEE7FD00510F96 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				8AB6993E2CDEF65A00510F96 /* StoreViewController.swift */,
+				8AB699402CDEF67000510F96 /* StoreViewModel.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -395,9 +401,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB6993F2CDEF65A00510F96 /* StoreViewController.swift in Sources */,
 				8A891DF12CD34DBB00367DA3 /* Testing2.xcdatamodeld in Sources */,
 				8A891E3C2CD45F1D00367DA3 /* LoginResponseDTO.swift in Sources */,
 				8A891DE72CD34DBB00367DA3 /* AppDelegate.swift in Sources */,
+				8AB699412CDEF67000510F96 /* StoreViewModel.swift in Sources */,
 				8A891E222CD3C98000367DA3 /* LoginViewController.swift in Sources */,
 				8A891E3A2CD41C0A00367DA3 /* LoginViewModel.swift in Sources */,
 				8A891E352CD4128400367DA3 /* NetworkService.swift in Sources */,
