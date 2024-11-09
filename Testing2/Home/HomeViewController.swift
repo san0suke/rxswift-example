@@ -12,13 +12,14 @@ import RxCocoa
 
 class HomeViewController: UITabBarController {
     
-    private let viewModel = LoginViewModel()
+    private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        viewModel.startTapFactory()
     }
     
     override func viewWillAppear(_ animated: Bool) {

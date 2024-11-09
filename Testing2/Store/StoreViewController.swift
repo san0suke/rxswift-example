@@ -23,10 +23,10 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     private let items: [StoreItem] = [
         StoreItem(itemEnum: .FisrtPlusTap, iconName: "hand.tap", name: "+3 taps per tap", price: 100),
         StoreItem(itemEnum: .FirstTapFactory, iconName: "person.3.sequence", name: "+1 taps/second tap factory", price: 300),
-        StoreItem(itemEnum: .SecondPlusTap, iconName: "hand.tap", name: "+10 taps per tap", price: 1000),
-        StoreItem(itemEnum: .SecondTapFactory, iconName: "person.3.sequence", name: "+30 taps/second tap factory", price: 10000),
-        StoreItem(itemEnum: .ThirdPlusTap, iconName: "hand.tap", name: "+100 taps per tap", price: 100000),
-        StoreItem(itemEnum: .ThirdTapFactory, iconName: "person.3.sequence", name: "+100 taps/second factory", price: 500000),
+        StoreItem(itemEnum: .SecondPlusTap, iconName: "hand.tap", name: "+50 taps per tap", price: 1000),
+        StoreItem(itemEnum: .SecondTapFactory, iconName: "person.3.sequence", name: "+50 taps/second tap factory", price: 10000),
+        StoreItem(itemEnum: .ThirdPlusTap, iconName: "hand.tap", name: "+1000 taps per tap", price: 100000),
+        StoreItem(itemEnum: .ThirdTapFactory, iconName: "person.3.sequence", name: "+1000 taps/second factory", price: 500000),
         StoreItem(itemEnum: .Victory, iconName: "trophy", name: "Win the game", price: 1500000),
     ]
     

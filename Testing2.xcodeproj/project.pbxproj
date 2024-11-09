@@ -39,6 +39,8 @@
 		8AB699452CDF08DF00510F96 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB699442CDF08DF00510F96 /* StoreItem.swift */; };
 		8AB699472CDF1C1A00510F96 /* TapPowersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB699462CDF1C1A00510F96 /* TapPowersManager.swift */; };
 		8AB699492CDF1CC400510F96 /* StoreItemEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB699482CDF1CC400510F96 /* StoreItemEnum.swift */; };
+		8AB6994B2CDF276200510F96 /* TapFactoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6994A2CDF276200510F96 /* TapFactoryManager.swift */; };
+		8AB6994D2CDF27FA00510F96 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6994C2CDF27FA00510F96 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		8AB699442CDF08DF00510F96 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		8AB699462CDF1C1A00510F96 /* TapPowersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapPowersManager.swift; sourceTree = "<group>"; };
 		8AB699482CDF1CC400510F96 /* StoreItemEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemEnum.swift; sourceTree = "<group>"; };
+		8AB6994A2CDF276200510F96 /* TapFactoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapFactoryManager.swift; sourceTree = "<group>"; };
+		8AB6994C2CDF27FA00510F96 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				8A891E402CD47E4E00367DA3 /* HomeViewController.swift */,
+				8AB6994C2CDF27FA00510F96 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			children = (
 				8AB6993B2CDED11E00510F96 /* TapCountManager.swift */,
 				8AB699462CDF1C1A00510F96 /* TapPowersManager.swift */,
+				8AB6994A2CDF276200510F96 /* TapFactoryManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				8A891E3C2CD45F1D00367DA3 /* LoginResponseDTO.swift in Sources */,
 				8A891DE72CD34DBB00367DA3 /* AppDelegate.swift in Sources */,
 				8AB699412CDEF67000510F96 /* StoreViewModel.swift in Sources */,
+				8AB6994D2CDF27FA00510F96 /* HomeViewModel.swift in Sources */,
 				8AB699452CDF08DF00510F96 /* StoreItem.swift in Sources */,
 				8A891E222CD3C98000367DA3 /* LoginViewController.swift in Sources */,
 				8A891E3A2CD41C0A00367DA3 /* LoginViewModel.swift in Sources */,
@@ -429,6 +436,7 @@
 				8A891E412CD47E4E00367DA3 /* HomeViewController.swift in Sources */,
 				8A891DE92CD34DBB00367DA3 /* SceneDelegate.swift in Sources */,
 				8A891E3E2CD45F5A00367DA3 /* UserDTO.swift in Sources */,
+				8AB6994B2CDF276200510F96 /* TapFactoryManager.swift in Sources */,
 				8AB699392CDEA11900510F96 /* StatusBarView.swift in Sources */,
 				8A90EAC62CD55DDF005FDD02 /* LobbyViewController.swift in Sources */,
 				8AB699432CDF07CE00510F96 /* StoreLineTableViewCell.swift in Sources */,

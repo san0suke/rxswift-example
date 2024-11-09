@@ -34,15 +34,15 @@ class TapPowersManager: TapPowersManagerProtocol {
         case .FisrtPlusTap:
             increasePerTapCount(3)
         case .SecondPlusTap:
-            increasePerTapCount(10)
+            increasePerTapCount(50)
         case .ThirdPlusTap:
-            increasePerTapCount(100)
+            increasePerTapCount(1000)
         case .FirstTapFactory:
             increaseFactoryAutoTap(1)
         case .SecondTapFactory:
-            increaseFactoryAutoTap(30)
+            increaseFactoryAutoTap(50)
         case .ThirdTapFactory:
-            increaseFactoryAutoTap(100)
+            increaseFactoryAutoTap(1000)
         default:
             break
         }
