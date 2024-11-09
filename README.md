@@ -1,4 +1,4 @@
-RXSwift: Tap Tap Sample App
+# RXSwift: Tap Tap Sample App
 
 In this tutorial, we'll explore how to create a simple "Tap Tap" app using RxSwift, a powerful reactive programming framework for iOS. 
 
