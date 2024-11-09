@@ -32,7 +32,7 @@ class HomeViewController: UITabBarController {
         
         let firstTab = UIViewController()
         firstTab.view.backgroundColor = .white
-        firstTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        firstTab.tabBarItem = UITabBarItem(title: "Store", image: UIImage(systemName: "storefront"), tag: 0)
         
         let secondTab = LobbyViewController()
         secondTab.view.backgroundColor = .white

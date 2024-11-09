@@ -134,6 +134,7 @@
 		8A891DE52CD34DBB00367DA3 /* Testing2 */ = {
 			isa = PBXGroup;
 			children = (
+				8AB6993D2CDEE7FD00510F96 /* Store */,
 				8AB6993A2CDED11500510F96 /* Managers */,
 				8AB699372CDEA10300510F96 /* Components */,
 				8A90EAC42CD55DCC005FDD02 /* Lobby */,
@@ -243,6 +244,13 @@
 				8AB6993B2CDED11E00510F96 /* TapCountManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		8AB6993D2CDEE7FD00510F96 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -67,6 +67,27 @@ class LoginViewController: UIViewController {
         return label
     }()
     
+    private let orLabel: UILabel = {
+        let label = UILabel()
+        label.text = "OR"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    private let guestButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Enter as guest", for: .normal)
+        
+        button.backgroundColor = .darkGray
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        
+        return button
+    }()
+    
     private let loadingVC: LoadingViewController = {
         return LoadingViewController()
     }()
@@ -91,7 +112,7 @@ class LoginViewController: UIViewController {
         rememberMeStack.axis = .horizontal
         
         let verticalStackView = UIStackView(arrangedSubviews: [formTitle, loginTextField, passwordTextField,
-                                                               rememberMeStack, loginButton])
+                                                               rememberMeStack, loginButton, orLabel, guestButton])
         verticalStackView.axis = .vertical
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.spacing = 15
@@ -105,7 +126,8 @@ class LoginViewController: UIViewController {
             formTitle.widthAnchor.constraint(equalToConstant: 250),
             loginTextField.widthAnchor.constraint(equalToConstant: 250),
             passwordTextField.widthAnchor.constraint(equalToConstant: 250),
-            loginButton.widthAnchor.constraint(equalToConstant: 250)
+            loginButton.widthAnchor.constraint(equalToConstant: 250),
+            guestButton.widthAnchor.constraint(equalToConstant: 250)
         ])
     }
     
@@ -149,6 +171,16 @@ class LoginViewController: UIViewController {
                 self.presentErrorDialog()
                 print("Error: \(error.localizedDescription)")
             })
+            .disposed(by: disposeBag)
+        
+        guestButton.rx.tap
+            .do { _ in
+                print("taping guest")
+                self.viewModel.loginAsGuest()
+            }
+            .subscribe { _ in
+                self.navigateToHome()
+            }
             .disposed(by: disposeBag)
     }
     

@@ -45,4 +45,8 @@ class LoginViewModel {
     func hasRememberMeSave() -> Bool {
         return self.userDefaultData.rememberMe
     }
+    
+    func loginAsGuest() {
+        self.userDefaultData.rememberMe = try! self.rememberMe.value()
+    }
 }

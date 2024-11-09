@@ -17,7 +17,7 @@ class LobbyViewController: UIViewController {
     private let tapHereLabel: UILabel = {
         let label = UILabel()
         label.text = "Tap me!"
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
