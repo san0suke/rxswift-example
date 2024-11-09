@@ -10,12 +10,51 @@ import RxSwift
 import RxCocoa
 
 protocol TapPowersManagerProtocol {
-    
+    var increasePerTap: Int { get }
+    var factoryIncreaseTap: Int { get }
+    func add(_ item: StoreItem)
 }
+
+fileprivate let increasePerTapKey = "increasePerTap"
+fileprivate let factoryIncreaseTapKey = "factoryIncreaseTap"
 
 class TapPowersManager: TapPowersManagerProtocol {
     
     static let shared = TapPowersManager()
     
-    private init() {}
+    var increasePerTap = UserDefaults.standard.integer(forKey: increasePerTapKey)
+    var factoryIncreaseTap = UserDefaults.standard.integer(forKey: factoryIncreaseTapKey)
+    
+    private init() {
+        increasePerTap = increasePerTap == 0 ? 1 : increasePerTap
+    }
+    
+    func add(_ item: StoreItem) {
+        switch (item.itemEnum) {
+        case .FisrtPlusTap:
+            increasePerTapCount(3)
+        case .SecondPlusTap:
+            increasePerTapCount(10)
+        case .ThirdPlusTap:
+            increasePerTapCount(100)
+        case .FirstTapFactory:
+            increaseFactoryAutoTap(1)
+        case .SecondTapFactory:
+            increaseFactoryAutoTap(30)
+        case .ThirdTapFactory:
+            increaseFactoryAutoTap(100)
+        default:
+            break
+        }
+    }
+    
+    private func increasePerTapCount(_ count: Int) {
+        increasePerTap += count
+        UserDefaults.standard.set(increasePerTap, forKey: increasePerTapKey)
+    }
+    
+    private func increaseFactoryAutoTap(_ count: Int) {
+        factoryIncreaseTap += count
+        UserDefaults.standard.set(factoryIncreaseTap, forKey: factoryIncreaseTapKey)
+    }
 }

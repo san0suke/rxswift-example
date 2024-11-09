@@ -18,6 +18,7 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     private let statusBarView = StatusBarView()
     private let tableView = UITableView()
     private let tapCountManager: TapCountManagerProtocol = TapCountManager.shared
+    private let tapPowersManager: TapPowersManagerProtocol = TapPowersManager.shared
     
     private let items: [StoreItem] = [
         StoreItem(itemEnum: .FisrtPlusTap, iconName: "hand.tap", name: "+3 taps per tap", price: 100),
@@ -34,6 +35,11 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         setupUI()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     private func setupUI() {
@@ -65,7 +71,7 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     private func canBuy(_ price: Int) -> Bool {
-        return tapCountManager.tapCount.value <= price
+        return tapCountManager.tapCount.value >= price
     }
     
     // MARK: - UITableViewDataSource
@@ -77,7 +83,7 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let item = items[indexPath.row]
         
-        if canBuy(item.price) {
+        if !canBuy(item.price) {
             return nil
         }
         return indexPath
@@ -89,6 +95,9 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.configure(with: UIImage(systemName: item.iconName), title: item.name, price: "\(item.price) Taps")
         
         if canBuy(item.price) {
+            cell.isUserInteractionEnabled = true
+            cell.contentView.alpha = 1.0
+        } else {
             cell.isUserInteractionEnabled = false
             cell.contentView.alpha = 0.5
         }
@@ -99,7 +108,13 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Tapped on item: \(items[indexPath.row])")
+        let item = items[indexPath.row]
+        print("Tapped on item: \(item)")
+        
+        tapCountManager.decrease(item.price)
+        tapPowersManager.add(item)
+        
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
