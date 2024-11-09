@@ -17,6 +17,7 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     private let statusBarView = StatusBarView()
     private let tableView = UITableView()
+    private let tapCountManager: TapCountManagerProtocol = TapCountManager.shared
     
     private let items: [StoreItem] = [
         StoreItem(iconName: "hand.tap", name: "+3 taps per tap", price: 100),
@@ -62,16 +63,36 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.register(StoreLineTableViewCell.self, forCellReuseIdentifier: "StoreLineCell")
     }
     
+    private func canBuy(_ price: Int) -> Bool {
+        return tapCountManager.tapCount.value <= price
+    }
+    
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let item = items[indexPath.row]
+        
+        if canBuy(item.price) {
+            return nil
+        }
+        return indexPath
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreLineCell", for: indexPath) as! StoreLineTableViewCell
         let item = items[indexPath.row]
         cell.configure(with: UIImage(systemName: item.iconName), title: item.name, price: "\(item.price) Taps")
+        
+        
+        if canBuy(item.price) {
+            cell.isUserInteractionEnabled = false
+            cell.contentView.alpha = 0.5
+        }
+        
         return cell
     }
     
