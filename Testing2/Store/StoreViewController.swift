@@ -65,6 +65,21 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.showWinDialog
+            .subscribe { _ in
+                self.presentWinDialog()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func presentWinDialog() {
+        let alertController = UIAlertController(title: "Congratulations!", message: "You won the game! Thank you for playing!", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - UITableViewDataSource

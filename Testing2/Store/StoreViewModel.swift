@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import UIKit
 
 class StoreViewModel {
     
@@ -16,6 +17,7 @@ class StoreViewModel {
     
     let items: [StoreItem]
     let tapCount: BehaviorRelay<Int>
+    let showWinDialog = PublishSubject<Void>()
     
     init(tapCountManager: TapCountManagerProtocol = TapCountManager.shared,
          tapPowersManager: TapPowersManagerProtocol = TapPowersManager.shared) {
@@ -38,7 +40,12 @@ class StoreViewModel {
     }
     
     func purchase(item: StoreItem) {
-        tapCountManager.decrease(item.price)
-        tapPowersManager.add(item)
+        switch item.itemEnum {
+        case .Victory:
+            showWinDialog.onNext(())
+        default:
+            tapCountManager.decrease(item.price)
+            tapPowersManager.add(item)
+        }
     }
 }
