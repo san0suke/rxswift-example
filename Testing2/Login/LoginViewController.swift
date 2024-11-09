@@ -132,11 +132,6 @@ class LoginViewController: UIViewController {
     }
     
     private func setupBindings() {
-        // TODO Remove
-        loginTextField.text = "newuser2@domain.com"
-        passwordTextField.text = "password1234"
-//        passwordTextField.text = "password12346" //wrong password
-        
         loginTextField.rx.text.orEmpty
             .bind(to: viewModel.username)
             .disposed(by: disposeBag)
