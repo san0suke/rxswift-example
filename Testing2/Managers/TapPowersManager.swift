@@ -42,7 +42,7 @@ class TapPowersManager: TapPowersManagerProtocol {
         case .SecondTapFactory:
             increaseFactoryAutoTap(150)
         case .ThirdTapFactory:
-            increaseFactoryAutoTap(1000)
+            increaseFactoryAutoTap(10000)
         default:
             break
         }
