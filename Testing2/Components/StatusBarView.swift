@@ -5,12 +5,14 @@
 //  Created by Robson Cesar de Siqueira on 08/11/24.
 //
 
-import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class StatusBarView: UIView {
     
     var tapCountManager: TapCountManagerProtocol = TapCountManager.shared
+    private let disposeBag = DisposeBag()
     
     let tapLabelScore: UILabel = {
         let label = UILabel()
@@ -41,5 +43,14 @@ class StatusBarView: UIView {
             tapLabelScore.centerXAnchor.constraint(equalTo: centerXAnchor),
             tapLabelScore.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+        
+        setupBindings()
+    }
+    
+    private func setupBindings() {
+        tapCountManager.tapCount
+            .map { "Taps: \($0)" }
+            .bind(to: tapLabelScore.rx.text)
+            .disposed(by: disposeBag)
     }
 }

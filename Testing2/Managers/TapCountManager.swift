@@ -6,30 +6,26 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol TapCountManagerProtocol {
-    var tapCount: Int { get set }
-    func incrementTapCount() -> Int
+    var tapCount: BehaviorRelay<Int> { get }
+    func incrementTapCount()
 }
 
 class TapCountManager: TapCountManagerProtocol {
     
     static let shared = TapCountManager()
+    
+    private(set) var tapCount = BehaviorRelay<Int>(value: UserDefaults.standard.integer(forKey: "tapCount"))
+    
     private let tapCountKey = "tapCount"
-    
-    var tapCount: Int {
-        get {
-            return UserDefaults.standard.integer(forKey: tapCountKey)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: tapCountKey)
-        }
-    }
-    
     private init() {}
     
-    func incrementTapCount() -> Int {
-        tapCount += 1
-        return tapCount
+    func incrementTapCount() {
+        let newCount = tapCount.value + 1
+        tapCount.accept(newCount)
+        UserDefaults.standard.set(newCount, forKey: tapCountKey)
     }
 }

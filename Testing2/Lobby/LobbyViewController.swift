@@ -17,7 +17,7 @@ class LobbyViewController: UIViewController {
     private let tapHereLabel: UILabel = {
         let label = UILabel()
         label.text = "Tap me!"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -31,8 +31,6 @@ class LobbyViewController: UIViewController {
         
         return uiView
     }()
-    
-    private let tapCounter = BehaviorRelay<Int>(value: TapCountManager.shared.tapCount)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,15 +69,9 @@ class LobbyViewController: UIViewController {
         tapGesture.rx.event
             .do(onNext: { _ in
                 print("Tapped!")
-                let newCount = TapCountManager.shared.incrementTapCount()
-                self.tapCounter.accept(newCount)
+                TapCountManager.shared.incrementTapCount()
             })
             .subscribe()
-            .disposed(by: disposeBag)
-        
-        tapCounter
-            .map { "Taps: \($0)" }
-            .bind(to: statusBarView.tapLabelScore.rx.text)
             .disposed(by: disposeBag)
     }
 }

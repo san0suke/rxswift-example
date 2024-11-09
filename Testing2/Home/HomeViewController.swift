@@ -19,7 +19,6 @@ class HomeViewController: UITabBarController {
         super.viewDidLoad()
         
         setupUI()
-        setupBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,9 +45,5 @@ class HomeViewController: UITabBarController {
         viewControllers = [firstTab, secondTab, thirdTab]
         
         selectedIndex = 1
-    }
-    
-    private func setupBindings() {
-        
     }
 }
