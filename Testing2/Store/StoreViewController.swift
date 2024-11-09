@@ -18,8 +18,14 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     private let statusBarView = StatusBarView()
     private let tableView = UITableView()
     
-    // Suponha que tenhamos uma lista de itens
-    private let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+    private let items: [StoreItem] = [
+        StoreItem(iconName: "hand.tap", name: "+3 taps per tap", price: 100),
+        StoreItem(iconName: "person.3.sequence", name: "+1 taps/second tap factory", price: 300),
+        StoreItem(iconName: "hand.tap", name: "+10 taps per tap", price: 1000),
+        StoreItem(iconName: "person.3.sequence", name: "+30 taps/second tap factory", price: 10000),
+        StoreItem(iconName: "hand.tap", name: "+100 taps per tap", price: 100000),
+        StoreItem(iconName: "person.3.sequence", name: "+100 taps/second factory", price: 500000),
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +37,9 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     private func setupUI() {
         view.backgroundColor = .white
         
-        // Configurar StatusBarView
         statusBarView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statusBarView)
         
-        // Configurar TableView
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
@@ -55,7 +59,7 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ItemCell")
+        tableView.register(StoreLineTableViewCell.self, forCellReuseIdentifier: "StoreLineCell")
     }
     
     // MARK: - UITableViewDataSource
@@ -65,9 +69,9 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
-        cell.textLabel?.text = items[indexPath.row]
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreLineCell", for: indexPath) as! StoreLineTableViewCell
+        let item = items[indexPath.row]
+        cell.configure(with: UIImage(systemName: item.iconName), title: item.name, price: "\(item.price) Taps")
         return cell
     }
     
@@ -75,6 +79,9 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tapped on item: \(items[indexPath.row])")
-        // Aqui você pode implementar a lógica para quando um item é pressionado
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
