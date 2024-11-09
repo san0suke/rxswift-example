@@ -20,12 +20,13 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     private let tapCountManager: TapCountManagerProtocol = TapCountManager.shared
     
     private let items: [StoreItem] = [
-        StoreItem(iconName: "hand.tap", name: "+3 taps per tap", price: 100),
-        StoreItem(iconName: "person.3.sequence", name: "+1 taps/second tap factory", price: 300),
-        StoreItem(iconName: "hand.tap", name: "+10 taps per tap", price: 1000),
-        StoreItem(iconName: "person.3.sequence", name: "+30 taps/second tap factory", price: 10000),
-        StoreItem(iconName: "hand.tap", name: "+100 taps per tap", price: 100000),
-        StoreItem(iconName: "person.3.sequence", name: "+100 taps/second factory", price: 500000),
+        StoreItem(itemEnum: .FisrtPlusTap, iconName: "hand.tap", name: "+3 taps per tap", price: 100),
+        StoreItem(itemEnum: .FirstTapFactory, iconName: "person.3.sequence", name: "+1 taps/second tap factory", price: 300),
+        StoreItem(itemEnum: .SecondPlusTap, iconName: "hand.tap", name: "+10 taps per tap", price: 1000),
+        StoreItem(itemEnum: .SecondTapFactory, iconName: "person.3.sequence", name: "+30 taps/second tap factory", price: 10000),
+        StoreItem(itemEnum: .ThirdPlusTap, iconName: "hand.tap", name: "+100 taps per tap", price: 100000),
+        StoreItem(itemEnum: .ThirdTapFactory, iconName: "person.3.sequence", name: "+100 taps/second factory", price: 500000),
+        StoreItem(itemEnum: .Victory, iconName: "trophy", name: "Win the game", price: 1500000),
     ]
     
     override func viewDidLoad() {
@@ -86,7 +87,6 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreLineCell", for: indexPath) as! StoreLineTableViewCell
         let item = items[indexPath.row]
         cell.configure(with: UIImage(systemName: item.iconName), title: item.name, price: "\(item.price) Taps")
-        
         
         if canBuy(item.price) {
             cell.isUserInteractionEnabled = false

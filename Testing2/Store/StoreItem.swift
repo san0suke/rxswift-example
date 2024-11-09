@@ -8,6 +8,7 @@
 import Foundation
 
 struct StoreItem {
+    let itemEnum: StoreItemEnum
     let iconName: String
     let name: String
     let price: Int
