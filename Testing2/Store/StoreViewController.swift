@@ -14,27 +14,16 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     private let viewModel = StoreViewModel()
     private let disposeBag = DisposeBag()
-
+    
     private let statusBarView = StatusBarView()
     private let tableView = UITableView()
-    private let tapCountManager: TapCountManagerProtocol = TapCountManager.shared
-    private let tapPowersManager: TapPowersManagerProtocol = TapPowersManager.shared
-    
-    private let items: [StoreItem] = [
-        StoreItem(itemEnum: .FisrtPlusTap, iconName: "hand.tap", name: "+3 taps per tap", price: 100),
-        StoreItem(itemEnum: .FirstTapFactory, iconName: "person.3.sequence", name: "+1 taps/second tap factory", price: 300),
-        StoreItem(itemEnum: .SecondPlusTap, iconName: "hand.tap", name: "+50 taps per tap", price: 1000),
-        StoreItem(itemEnum: .SecondTapFactory, iconName: "person.3.sequence", name: "+150 taps/second tap factory", price: 10000),
-        StoreItem(itemEnum: .ThirdPlusTap, iconName: "hand.tap", name: "+1000 taps per tap", price: 100000),
-        StoreItem(itemEnum: .ThirdTapFactory, iconName: "person.3.sequence", name: "+1000 taps/second factory", price: 500000),
-        StoreItem(itemEnum: .Victory, iconName: "trophy", name: "Win the game", price: 1500000),
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         setupTableView()
+        setupBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +33,6 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     private func setupUI() {
         view.backgroundColor = .white
-        
         statusBarView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statusBarView)
         
@@ -70,31 +58,32 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.register(StoreLineTableViewCell.self, forCellReuseIdentifier: "StoreLineCell")
     }
     
-    private func canBuy(_ price: Int) -> Bool {
-        return tapCountManager.tapCount.value >= price
+    private func setupBindings() {
+        viewModel.tapCount
+            .asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let item = items[indexPath.row]
-        
-        if !canBuy(item.price) {
-            return nil
-        }
-        return indexPath
+        let item = viewModel.items[indexPath.row]
+        return viewModel.canBuy(item.price) ? indexPath : nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreLineCell", for: indexPath) as! StoreLineTableViewCell
-        let item = items[indexPath.row]
+        let item = viewModel.items[indexPath.row]
         cell.configure(with: UIImage(systemName: item.iconName), title: item.name, price: "\(item.price) Taps")
         
-        if canBuy(item.price) {
+        if viewModel.canBuy(item.price) {
             cell.isUserInteractionEnabled = true
             cell.contentView.alpha = 1.0
         } else {
@@ -108,11 +97,8 @@ class StoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        
-        tapCountManager.decrease(item.price)
-        tapPowersManager.add(item)
-        
+        let item = viewModel.items[indexPath.row]
+        viewModel.purchase(item: item)
         tableView.reloadData()
     }
     
