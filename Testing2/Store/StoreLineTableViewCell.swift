@@ -46,8 +46,6 @@ class StoreLineTableViewCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(priceLabel)
         
-//        iconImageView.tintColor = .darkGray
-        
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
